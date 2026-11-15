@@ -1,8 +1,8 @@
-# ROZVI Drought Engine (Zimbabwe) – Complete Build
+# ROZVI Drought Engine (Zimbabwe) 
 
 **Version:** 0.1.0-dev  
 **Layers in scope:** Layer 1 (climate hazard) + Layer 2 (agricultural stress indicators)  
-**Domain:** Zimbabwe (FAO GAUL 2025 ADM0 boundary)  
+**Domain:** Zimbabwe (FAO GAUL 2015 ADM0 boundary)  
 **Primary precipitation:** CHIRPS V3 Daily RNL (ERA5-disaggregated) via Google Earth Engine; monthly aggregates for Layer 1.
 
 This package is a self-contained scientific implementation of the ROZVI drought methodology. It can be downloaded, tested offline with synthetic data, and then pointed at real CHIRPS exports from GEE.
