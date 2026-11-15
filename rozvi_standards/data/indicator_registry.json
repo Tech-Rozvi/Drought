@@ -1,0 +1,610 @@
+{
+ "registry_version": "1.0.0",
+ "validation_levels": {
+  "V0": "specified",
+  "V1": "implemented",
+  "V2": "unit and invariant tested",
+  "V3": "verified against reference implementation or published test cases",
+  "V4": "compared with independent observations",
+  "V5": "operational with monitoring"
+ },
+ "indicators": [
+  {
+   "id": "precip_monthly",
+   "layer": "L1",
+   "name": "Monthly precipitation total",
+   "units": "mm",
+   "theoretical_range": [
+    0,
+    null
+   ],
+   "interpretation": "Sum of valid daily (or provider monthly) precipitation",
+   "must_not_be_interpreted_as": "Missing rain is never zero",
+   "required_inputs": [
+    "precipitation"
+   ],
+   "baseline_required": false,
+   "implementation": "rozvi_layer1.monthly.monthly_totals",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3",
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "precip_anomaly_mm",
+   "layer": "L1",
+   "name": "Monthly precipitation anomaly",
+   "units": "mm",
+   "theoretical_range": [
+    null,
+    null
+   ],
+   "interpretation": "Departure from calendar-month baseline mean",
+   "must_not_be_interpreted_as": "Not a standardised index",
+   "required_inputs": [
+    "precip_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.monthly.anomalies",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3",
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "precip_anomaly_pct",
+   "layer": "L1",
+   "name": "Monthly precipitation anomaly",
+   "units": "%",
+   "theoretical_range": [
+    -100,
+    null
+   ],
+   "interpretation": "Percent departure; null where climatological mean < 1 mm",
+   "must_not_be_interpreted_as": "Unstable in dry months",
+   "required_inputs": [
+    "precip_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.monthly.anomalies",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3",
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "spi_1",
+   "layer": "L1",
+   "name": "Standardized Precipitation Index, 1-month",
+   "units": "index",
+   "theoretical_range": [
+    -4.7534,
+    4.7534
+   ],
+   "interpretation": "Precipitation anomaly relative to baseline distribution",
+   "must_not_be_interpreted_as": "Not soil moisture, crop damage or water availability",
+   "required_inputs": [
+    "precip_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.spi.spi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3",
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "spi_3",
+   "layer": "L1",
+   "name": "Standardized Precipitation Index, 3-month",
+   "units": "index",
+   "theoretical_range": [
+    -4.7534,
+    4.7534
+   ],
+   "interpretation": "Precipitation anomaly relative to baseline distribution",
+   "must_not_be_interpreted_as": "Not soil moisture, crop damage or water availability",
+   "required_inputs": [
+    "precip_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.spi.spi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3",
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "spi_6",
+   "layer": "L1",
+   "name": "Standardized Precipitation Index, 6-month",
+   "units": "index",
+   "theoretical_range": [
+    -4.7534,
+    4.7534
+   ],
+   "interpretation": "Precipitation anomaly relative to baseline distribution",
+   "must_not_be_interpreted_as": "Not soil moisture, crop damage or water availability",
+   "required_inputs": [
+    "precip_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.spi.spi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3",
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "spi_12",
+   "layer": "L1",
+   "name": "Standardized Precipitation Index, 12-month",
+   "units": "index",
+   "theoretical_range": [
+    -4.7534,
+    4.7534
+   ],
+   "interpretation": "Precipitation anomaly relative to baseline distribution",
+   "must_not_be_interpreted_as": "Not soil moisture, crop damage or water availability",
+   "required_inputs": [
+    "precip_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.spi.spi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3",
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "spei_3",
+   "layer": "L1",
+   "name": "Standardized Precipitation Evapotranspiration Index, 3-month",
+   "units": "index",
+   "theoretical_range": [
+    -4.7534,
+    4.7534
+   ],
+   "interpretation": "Climatic water balance (P - PET) anomaly; primary stream uses FAO-56 ET0",
+   "must_not_be_interpreted_as": "Not a z-score; PET stream must be stated",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.spei.spei",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L",
+    "ERA5L_P+FAO56_ET0_ERA5L",
+    "CHIRPS_V3+ERA5L_PEV"
+   ]
+  },
+  {
+   "id": "spei_6",
+   "layer": "L1",
+   "name": "Standardized Precipitation Evapotranspiration Index, 6-month",
+   "units": "index",
+   "theoretical_range": [
+    -4.7534,
+    4.7534
+   ],
+   "interpretation": "Climatic water balance (P - PET) anomaly; primary stream uses FAO-56 ET0",
+   "must_not_be_interpreted_as": "Not a z-score; PET stream must be stated",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.spei.spei",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L",
+    "ERA5L_P+FAO56_ET0_ERA5L",
+    "CHIRPS_V3+ERA5L_PEV"
+   ]
+  },
+  {
+   "id": "spei_12",
+   "layer": "L1",
+   "name": "Standardized Precipitation Evapotranspiration Index, 12-month",
+   "units": "index",
+   "theoretical_range": [
+    -4.7534,
+    4.7534
+   ],
+   "interpretation": "Climatic water balance (P - PET) anomaly; primary stream uses FAO-56 ET0",
+   "must_not_be_interpreted_as": "Not a z-score; PET stream must be stated",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.spei.spei",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L",
+    "ERA5L_P+FAO56_ET0_ERA5L",
+    "CHIRPS_V3+ERA5L_PEV"
+   ]
+  },
+  {
+   "id": "rdi_st_1",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (standardised), 1-month",
+   "units": "index",
+   "theoretical_range": [
+    null,
+    null
+   ],
+   "interpretation": "Standardised ln of P/PET over k months",
+   "must_not_be_interpreted_as": "Zero rain gives null (ln 0)",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "rdi_st_3",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (standardised), 3-month",
+   "units": "index",
+   "theoretical_range": [
+    null,
+    null
+   ],
+   "interpretation": "Standardised ln of P/PET over k months",
+   "must_not_be_interpreted_as": "Zero rain gives null (ln 0)",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "rdi_st_6",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (standardised), 6-month",
+   "units": "index",
+   "theoretical_range": [
+    null,
+    null
+   ],
+   "interpretation": "Standardised ln of P/PET over k months",
+   "must_not_be_interpreted_as": "Zero rain gives null (ln 0)",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "rdi_st_12",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (standardised), 12-month",
+   "units": "index",
+   "theoretical_range": [
+    null,
+    null
+   ],
+   "interpretation": "Standardised ln of P/PET over k months",
+   "must_not_be_interpreted_as": "Zero rain gives null (ln 0)",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "rdi_n_1",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (normalised), 1-month",
+   "units": "ratio",
+   "theoretical_range": [
+    -1,
+    null
+   ],
+   "interpretation": "alpha / mean(alpha) - 1",
+   "must_not_be_interpreted_as": "Not comparable to SPI scale",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "rdi_n_3",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (normalised), 3-month",
+   "units": "ratio",
+   "theoretical_range": [
+    -1,
+    null
+   ],
+   "interpretation": "alpha / mean(alpha) - 1",
+   "must_not_be_interpreted_as": "Not comparable to SPI scale",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "rdi_n_6",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (normalised), 6-month",
+   "units": "ratio",
+   "theoretical_range": [
+    -1,
+    null
+   ],
+   "interpretation": "alpha / mean(alpha) - 1",
+   "must_not_be_interpreted_as": "Not comparable to SPI scale",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "rdi_n_12",
+   "layer": "L1",
+   "name": "Reconnaissance Drought Index (normalised), 12-month",
+   "units": "ratio",
+   "theoretical_range": [
+    -1,
+    null
+   ],
+   "interpretation": "alpha / mean(alpha) - 1",
+   "must_not_be_interpreted_as": "Not comparable to SPI scale",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly"
+   ],
+   "baseline_required": true,
+   "implementation": "rozvi_layer1.rdi.rdi",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": [
+    "CHIRPS_V3+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "et0_fao56_daily",
+   "layer": "L1",
+   "name": "FAO-56 Penman-Monteith reference evapotranspiration",
+   "units": "mm/day",
+   "theoretical_range": [
+    0,
+    null
+   ],
+   "interpretation": "Grass-reference ET0 from meteorological inputs",
+   "must_not_be_interpreted_as": "Not potential evaporation or actual ET",
+   "required_inputs": [
+    "t2m",
+    "d2m",
+    "u10",
+    "v10",
+    "sp",
+    "net_radiation"
+   ],
+   "baseline_required": false,
+   "implementation": "rozvi_layer1.fao56.et0_daily",
+   "validation_level": "V3",
+   "status": "implemented (core only; ERA5-Land aggregation not built)",
+   "streams": [
+    "ERA5_LAND"
+   ]
+  },
+  {
+   "id": "drought_event",
+   "layer": "L1",
+   "name": "Drought event (onset, termination, duration, peak, severity)",
+   "units": "index-months",
+   "theoretical_range": [
+    0,
+    null
+   ],
+   "interpretation": "Run of index <= threshold (default -1.0); severity = sum(max(0, u - I))",
+   "must_not_be_interpreted_as": "Frequency is not a return period",
+   "required_inputs": [
+    "index_series"
+   ],
+   "baseline_required": false,
+   "implementation": "rozvi_layer1.events.detect_events",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": []
+  },
+  {
+   "id": "wrsi_season",
+   "layer": "L2",
+   "name": "Water Requirement Satisfaction Index, season",
+   "units": "%",
+   "theoretical_range": [
+    0,
+    100
+   ],
+   "interpretation": "100 * sum(ETa)/sum(ETc) from a daily bucket; rain-fed upper-bound stress",
+   "must_not_be_interpreted_as": "Not yield loss; irrigation ignored",
+   "required_inputs": [
+    "precip_daily",
+    "et0_daily",
+    "crop_params",
+    "taw",
+    "calendar"
+   ],
+   "baseline_required": false,
+   "implementation": "rozvi_layer2.season.run_season",
+   "validation_level": "V2",
+   "status": "implemented (needs soil, cited crop parameters, daily forcing)",
+   "streams": [
+    "CHIRPS_V3_RNL+FAO56_ET0_ERA5L"
+   ]
+  },
+  {
+   "id": "wrsi_stage",
+   "layer": "L2",
+   "name": "WRSI by growth stage",
+   "units": "%",
+   "theoretical_range": [
+    0,
+    100
+   ],
+   "interpretation": "As wrsi_season per stage",
+   "must_not_be_interpreted_as": "Not yield loss",
+   "required_inputs": [
+    "as wrsi_season"
+   ],
+   "baseline_required": false,
+   "implementation": "rozvi_layer2.wrsi.wrsi_by_stage",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": []
+  },
+  {
+   "id": "stress_days",
+   "layer": "L2",
+   "name": "Days with Ks < 1",
+   "units": "days",
+   "theoretical_range": [
+    0,
+    null
+   ],
+   "interpretation": "Count of water-limited days in the season",
+   "must_not_be_interpreted_as": "Not damage",
+   "required_inputs": [
+    "as wrsi_season"
+   ],
+   "baseline_required": false,
+   "implementation": "rozvi_layer2.season.run_season",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": []
+  },
+  {
+   "id": "longest_stress_spell",
+   "layer": "L2",
+   "name": "Longest continuous water-limited spell",
+   "units": "days",
+   "theoretical_range": [
+    0,
+    null
+   ],
+   "interpretation": "Longest run of Ks < 1",
+   "must_not_be_interpreted_as": "Not damage",
+   "required_inputs": [
+    "as wrsi_season"
+   ],
+   "baseline_required": false,
+   "implementation": "rozvi_layer2.season.longest_run",
+   "validation_level": "V2",
+   "status": "implemented",
+   "streams": []
+  },
+  {
+   "id": "pdsi",
+   "layer": "L2",
+   "name": "Palmer Drought Severity Index",
+   "units": "index",
+   "theoretical_range": [
+    null,
+    null
+   ],
+   "interpretation": "Soil-moisture-based Palmer index (self-calibrating variant preferred)",
+   "must_not_be_interpreted_as": "Not crop-specific; slow responding",
+   "required_inputs": [
+    "precip_monthly",
+    "pet_monthly",
+    "awc"
+   ],
+   "baseline_required": true,
+   "implementation": "validated external implementation (not yet integrated)",
+   "validation_level": "V0",
+   "status": "blocked: soil AWC and validated implementation",
+   "streams": []
+  },
+  {
+   "id": "ndvi_anomaly_natural",
+   "layer": "L2",
+   "name": "Natural-vegetation NDVI anomaly",
+   "units": "index",
+   "theoretical_range": [
+    null,
+    null
+   ],
+   "interpretation": "Seasonal-baseline anomaly on natural vegetation only",
+   "must_not_be_interpreted_as": "Not drought attribution",
+   "required_inputs": [
+    "modis_ndvi",
+    "landcover",
+    "fire_mask"
+   ],
+   "baseline_required": true,
+   "implementation": "not built",
+   "validation_level": "V0",
+   "status": "blocked: MODIS, land cover, fire data",
+   "streams": []
+  }
+ ]
+}

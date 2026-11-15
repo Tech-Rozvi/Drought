@@ -1,0 +1,91 @@
+{
+ "config_version": "1.0.0",
+ "model_version": "0.1.0-dev",
+ "domain": {
+  "boundary": "GADM 4.1 ADM0 (gadm41_ZWE_0)",
+  "boundary_checksum": null
+ },
+ "precipitation": {
+  "primary": "CHIRPS_V3",
+  "complementary": "ERA5_LAND",
+  "nodata_value": -9999.0,
+  "min_completeness": 0.9,
+  "never_blend": true
+ },
+ "baseline": {
+  "primary": [
+   1991,
+   2020
+  ],
+  "sensitivity": [
+   [
+    1981,
+    2010
+   ],
+   [
+    1989,
+    2018
+   ]
+  ],
+  "min_samples": 25
+ },
+ "spi": {
+  "scales": [
+   1,
+   3,
+   6,
+   12
+  ],
+  "optional_scales": [
+   24
+  ],
+  "zero_prob": null,
+  "p_eps": 1e-06,
+  "ks_coeff": 1.36,
+  "min_positive": 10
+ },
+ "spei": {
+  "scales": [
+   3,
+   6,
+   12
+  ],
+  "primary_pet": "FAO56_ET0_ERA5_LAND",
+  "secondary_pet": "ERA5_LAND_PEV",
+  "p_eps": 1e-06
+ },
+ "rdi": {
+  "scales": [
+   1,
+   3,
+   6,
+   12
+  ]
+ },
+ "events": {
+  "threshold": -1.0,
+  "extra_thresholds": [
+   -1.5,
+   -2.0
+  ],
+  "min_duration_months": 1,
+  "gap_pool_months": 0,
+  "gap_pool_sensitivity": [
+   0,
+   1
+  ]
+ },
+ "layer2": {
+  "crops": [
+   "maize",
+   "tobacco"
+  ],
+  "sowing_step_days": 10,
+  "tobacco_variant": "comment",
+  "s0_fraction": null,
+  "irrigation_status": "unknown",
+  "params_file": null,
+  "taw_source": null
+ },
+ "note": "null = decision or input still required; the engine must refuse to run a stage whose required config value is null"
+}

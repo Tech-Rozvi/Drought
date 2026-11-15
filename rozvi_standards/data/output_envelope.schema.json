@@ -1,0 +1,153 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "ROZVI drought engine output envelope",
+ "type": "object",
+ "required": [
+  "schema_version",
+  "model_version",
+  "processing_run_id",
+  "geometry",
+  "period",
+  "indicator",
+  "units",
+  "value",
+  "source_dataset",
+  "dataset_version",
+  "baseline",
+  "spatial_support",
+  "quality_flags",
+  "uncertainty",
+  "validation_status",
+  "provenance",
+  "is_test_vector"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "1.0.0"
+  },
+  "model_version": {
+   "type": "string"
+  },
+  "processing_run_id": {
+   "type": "string"
+  },
+  "geometry": {
+   "type": "object"
+  },
+  "period": {
+   "type": "object",
+   "required": [
+    "start",
+    "end"
+   ]
+  },
+  "indicator": {
+   "type": "string"
+  },
+  "units": {
+   "type": "string"
+  },
+  "value": {
+   "type": [
+    "number",
+    "null"
+   ]
+  },
+  "source_dataset": {
+   "type": "string"
+  },
+  "dataset_version": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "baseline": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "spatial_support": {
+   "type": "object",
+   "required": [
+    "native_resolution_deg",
+    "crs"
+   ]
+  },
+  "quality_flags": {
+   "type": "array"
+  },
+  "uncertainty": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "validation_status": {
+   "enum": [
+    "V0",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+   ]
+  },
+  "provenance": {
+   "type": "object",
+   "required": [
+    "manifest_id"
+   ]
+  },
+  "is_test_vector": {
+   "const": false
+  },
+  "crop": {
+   "enum": [
+    "maize",
+    "tobacco",
+    null
+   ]
+  },
+  "zone": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "season": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "stage": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "sowing_date_member": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "irrigation_status": {
+   "enum": [
+    "unknown",
+    "rainfed",
+    "irrigated",
+    "mixed",
+    null
+   ]
+  },
+  "suppression_reason": {
+   "type": [
+    "array",
+    "null"
+   ]
+  }
+ }
+}

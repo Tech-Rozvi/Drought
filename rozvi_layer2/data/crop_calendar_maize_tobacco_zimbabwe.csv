@@ -1,0 +1,22 @@
+source_row,crop,source_crop_label,zone,stage_label,sow_start_day,sow_start_month,sow_end_day,sow_end_month,growing_period_min_days,growing_period_max_days,harvest_start_day,harvest_start_month,harvest_end_day,harvest_end_month,irrigation_status_in_source
+3,maize,Corn,Zone IIa,crop_cycle,1,11,15,12,150,160,1,4,30,6,rain-fed with supplementary irrigation (comment text)
+4,maize,Corn,Zone IIb,crop_cycle,1,11,15,12,150,160,1,4,30,6,rain-fed with supplementary irrigation (comment text)
+5,maize,Corn,Zone III,crop_cycle,15,11,15,12,120,140,1,3,30,6,rain-fed with supplementary irrigation (comment text)
+6,maize,Corn,Zone IV,crop_cycle,15,11,15,12,90,120,1,3,30,6,rain-fed with supplementary irrigation (comment text)
+7,maize,Corn,Zone Va,crop_cycle,15,11,15,12,90,110,1,3,30,6,rain-fed with supplementary irrigation (comment text)
+149,tobacco,Tobbaco,Zone IIa,seedbed,1,6,31,12,60,60,1,12,31,3,not stated
+150,tobacco,Tobbaco,Zone IIa,field,1,6,31,12,120,150,1,12,31,3,not stated
+151,tobacco,Tobbaco,Zone IIa,seedbed,1,9,31,12,60,60,1,12,31,3,not stated
+152,tobacco,Tobbaco,Zone IIa,field,1,9,31,12,120,150,1,12,31,3,not stated
+153,tobacco,Tobbaco,Zone IIb,seedbed,1,6,31,12,60,60,1,12,31,3,not stated
+154,tobacco,Tobbaco,Zone IIb,field,1,6,31,12,120,150,1,12,31,3,not stated
+155,tobacco,Tobbaco,Zone IIb,seedbed,1,9,31,12,60,60,1,12,31,3,not stated
+156,tobacco,Tobbaco,Zone IIb,field,1,9,31,12,120,150,1,12,31,3,not stated
+157,tobacco,Tobbaco,Zone III,seedbed,1,6,31,12,60,60,1,12,31,3,not stated
+158,tobacco,Tobbaco,Zone III,field,1,6,31,12,120,150,1,12,31,3,not stated
+159,tobacco,Tobbaco,Zone III,seedbed,1,9,31,12,60,60,1,12,31,3,not stated
+160,tobacco,Tobbaco,Zone III,field,1,9,31,12,120,150,1,12,31,3,not stated
+161,tobacco,Tobbaco,Zone IV,seedbed,1,6,31,12,60,60,1,12,31,3,not stated
+162,tobacco,Tobbaco,Zone IV,field,1,6,31,12,120,150,1,12,31,3,not stated
+163,tobacco,Tobbaco,Zone IV,seedbed,1,9,31,12,60,60,1,12,31,3,not stated
+164,tobacco,Tobbaco,Zone IV,field,1,9,31,12,120,150,1,12,31,3,not stated

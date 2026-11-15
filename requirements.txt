@@ -1,0 +1,11 @@
+numpy>=1.24
+scipy>=1.10
+Pillow>=9.0
+# Optional for richer raster I/O / zonal (install if available):
+# rasterio
+# shapely
+# geopandas
+# xarray
+# netCDF4
+# rioxarray
+python-docx>=1.0
